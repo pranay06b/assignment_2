@@ -1,0 +1,24 @@
+<!--
+	3.	There is one button labelled “Show confirm dialog”.  When I click on the button, it should display a confirm dialog.  In the dialog box, if I choose “yes”, it should show the dialog again.  Else, it should close the dialog.
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Assignment 3</title>
+		<script type="text/javascript" src="jquery.js">
+		</script>
+		<script type="text/javascript">
+		$( document ).ready(function() {
+		$("#btn").click(function()
+			{
+				var answer = true;
+				while(answer ==confirm("enter your choice"));
+				
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<button id="btn">Show confirm dialog</button>
+	</body>
+</html>
