@@ -1,0 +1,38 @@
+<!--
+2.	Have 3 text fields A, B and C and a button labelled “Validate”.  After the user inputs data into the 3 text fields and clicks on Validate, all the 3 text fields have to be validated.  A text field that has only numeric should have border color green, else it should be red.
+-->
+<!DOCTYPE HTML>
+
+	<head>
+		<title>Assignment 2</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+		$( document ).ready(function() {
+			$("button").click(function(){
+				
+  					$("input").each(function(){
+    			if($.isNumeric($(this).val()))
+    			{
+    				$(this).css("border","2px inset green");
+    			}
+    			else
+    			{
+    				$(this).css("border","2px solid red");	
+    			}
+  				});
+			});
+		});
+		</script>
+	</head>
+<body>
+Field A
+<input type="text">
+</br>
+Field B
+<input type="text">
+</br>
+Field C
+<input type="text">
+</br>
+<button>Submit</button>
+</body>
