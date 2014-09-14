@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Assignment 4</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+
+		$( document ).ready(function() {
+			var i=0;
+			$("#add").click(function(){
+				$(".myrow:first").clone().insertAfter(".myrow:last");
+
+			});
+			var x = $("#calc").click(function(){
+				
+			
+			i=$('div').length;
+			//console.log(i);
+			var cx=0,res=0;
+			while(i!=0)
+			{
+			//console.log($( "input:eq("+cx+")" ).val());
+			res=0;
+			res=parseInt($( "input:eq("+cx+")" ).val())+res;
+			if(check(res,cx))
+			{
+				i--;
+				continue;
+			}
+			cx=cx+1;
+			//console.log($( "input:eq("+cx+")"  ).val());
+			res=parseInt($( "input:eq("+cx+")"  ).val())+res;
+			
+			if(check(res,cx))
+			{
+				i--;
+				continue;
+			}
+			cx=cx+1;
+			//console.log($( "input:eq( "+cx+")" ).val());
+			res=parseInt($( "input:eq("+cx+")"  ).val())+res;
+			if(check(res,cx))
+			{
+				i--;
+				continue;
+			}
+			//console.log(res);
+			cx=cx+1;
+			
+			$( "input:eq("+cx+")"  ).val(res);
+			if(check(res,cx))
+			{
+				i--;
+				continue;
+			}
+			cx=cx+1;
+
+			i--;
+
+			
+		//	console.log(cx);
+			}
+
+			});
+		});
+
+function check (valid,cx) {
+				if(isNaN(valid))
+				{
+					var flag = "Please Enter Number";
+					//alert(flag);
+					$( "input:eq("+cx+")"  ).css( "background-color", "red" );
+					return true;
+				}
+				else
+				{
+					$( "input:eq("+cx+")"  ).css( "background-color", "white" );
+				}
+
+}
+		</script>
+<style type="text/css">
+.mytable {
+	border: 2px solid black;
+}
+</style>
+	</head>
+	<body>
+
+	<tbody>
+		<div class="myrow">
+		<tr>
+		
+			<td><input type="text" value="12" size="4"></td>
+			<td>+</td>
+			<td><input type="text" value="22" size="4"></td>
+			<td>+</td>
+			<td><input type="text" value="8" size="4"></td>
+			<td>=</td>
+			<td><input type="text" size="4"></td>
+			
+		</div>
+		</tr>
+		<div class="myrow">
+		<tr>
+			<td><input type="text" value="7" size="4"></td>
+			<td>+</td>
+			<td><input type="text" value="45" size="4"></td>
+			<td>+</td>
+			<td><input type="text" value="22" size="4"></td>
+			<td>=</td>
+			<td><input type="text" size="4"></td>
+		</tr>
+		</div>
+		
+	
+	</tbody>
+	<button id="add">
+Add Row
+	</button>
+	<button id="calc">
+Calculate	</button>
+	
+
+
+
+	
+	</body>
+
+</html>
