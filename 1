@@ -1,0 +1,58 @@
+<!--
+	1.	Accept a number as input from a text field A.  Change the number format to comma separated and display in text field B. For example, if “123456789” is input in text field A, then “123,456,789” should be displayed in text field B
+	-->
+	<!DOCTYPE HTML>
+	<head>
+		<title>Assignment 1</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+
+			$( document ).ready(function() {
+   			 $("#num").keyup(function(){
+			var inpstr = $("#num:input:text").val();
+						 var num1=parseInt(inpstr);
+			// console.log($("#num:input:text").val());
+			  $("#csv:input:text").val(function(i,c)
+			  {
+			  	if(/[0-9]+/.test(inpstr))
+				{
+
+			  	var a=0;
+			  	var str="";			  
+			  //	console.log(parseInt(num1/1000))
+			  	while(num1!= 0)
+			  	{
+			  		a = parseInt(num1 % 1000);
+			  		//console.log(a);
+			  		str= a.toString()+","+str;
+			  		//console.log(str);
+			  		num1=parseInt(num1/1000);
+			  	}
+			str=str.substr(0,str.length-1);
+			//console.log(str);
+			  	return str;
+			  }
+			  else
+			{
+				flag = "Please enter only Numbers";
+				return flag;			
+			}
+
+			  });		
+			
+			
+			});
+   			 
+			});
+
+		</script>
+	</head>
+	<body>
+		<input type="text" id="num" autofocus placeholder="Enter Number">
+	</br>
+		<input type="text" id="csv">
+	</br>
+
+		<div id="msg"></div>
+
+	</body>
