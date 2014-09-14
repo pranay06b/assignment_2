@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Assignment 7</title>
+		<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+  		$("button").click(function(){
+    		$.ajax({
+    	type: 'GET',
+        url: 'data.jsn',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data.name);
+          $("body").html("<b>Name:\t\t\t\t</b>"+data.name
+                          +"</br><b>Title</b>\t\t\t\t"+data.title
+                          +"</br><b>Description</b>\t\t\t\t"+data.description
+                          +"</br><b>Location</b>\t\t\t\t"+data.location
+                          +"</br><b>Member Name</b>\t\t\t\t"+data.member.name
+                          +"</br><b>Member URL</b>\t\t\t\t"+data.member.url);
+        }
+        ,error:function(xhr){
+      alert("Error " + xhr.status + " " + xhr.statusText);
+    }
+       
+			});
+  		});
+	});
+
+</script>
+	</head>
+	<body>
+		<button>Load Json</button>
+	</body>
+</html>
+
